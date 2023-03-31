@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>FreshCool - شركة مكيفات الهواء</title>
   <link rel="stylesheet" href="index.css">
+  <script src="index.js"></script>
 </head>
 <body>
   <header>
@@ -57,7 +58,42 @@
         <button class="fullscreen-btn">Full Screen</button>
       </div>
     </section>
+
+    <section>
+      <h2>تواصل معنا</h2>
+      <form id="contact-form">
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">البريد الالكتروني:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="country">المدينة:</label>
+        <input type="text" id="country" name="country" required>
+        <label for="phone">رقم الهاتف:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="message">وصف الطلب/المشكلة:</label>
+        <textarea id="message" name="message" required></textarea>
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+        <div id="send-btn-div">
+          <button type="submit" class="send-btn" onclick="sendEmail()">Send</button>
+        </div>
+      </form>
+
+      <form action="contactform.php" method="post" class="contact-form" enctype="multipart/form-data" onsubmit="return sendEmail()">
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="text" id="country" name="country" placeholder="Country" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
+        <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+        <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+        <input type="submit" value="Send" class="send-btn" onclick="sendEmail()" data-sending-text="Sending...">
+        <p id="status-message"></p>
+        <input type="hidden" name="mailto" value="playzyaso3553669@gmail.com">
+      </form>
+      
+    </section>
   </main>
+
+  
   
   <footer>
     <p>تواصل معنا:</p>
